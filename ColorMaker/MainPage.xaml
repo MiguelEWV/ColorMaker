@@ -46,11 +46,13 @@
                 <Label 
                     Text="Valor Rojo:"
                  />
+                <!--Cada Slider tem um manipulador de evento llamado "Value Change"-->
                 <Slider 
                     x:Name="slRojo"
                     MaximumTrackColor="{StaticResource ButtonColor}"
                     MinimumTrackColor="{StaticResource ButtonColor}"
                     ThumbColor="{StaticResource ButtonColor}"
+                    ValueChanged="slider_ValueChanged"
                 />
                 <Label 
                     Text="Valor Verde:"
@@ -60,6 +62,7 @@
                     MaximumTrackColor="{StaticResource ButtonColor}"
                     MinimumTrackColor="{StaticResource ButtonColor}"
                     ThumbColor="{StaticResource ButtonColor}"
+                    ValueChanged="slider_ValueChanged"
                 />
                 <Label 
                     Text="Valor Azul:"
@@ -69,24 +72,32 @@
                     MaximumTrackColor="{StaticResource ButtonColor}"
                     MinimumTrackColor="{StaticResource ButtonColor}"
                     ThumbColor="{StaticResource ButtonColor}"
+                    ValueChanged="slider_ValueChanged"
                 />
                 <Border  VerticalOptions="Center"
                          HorizontalOptions="Center"
                          StrokeThickness="0.6"
                          Padding="5,2">
                     <HorizontalStackLayout>
+                        <Label                            
+                            HorizontalTextAlignment="Start"
+                            Text="Valor HEX: "
+                            VerticalOptions="Center"
+                         />
                         <Label
                             x:Name="lblHex"
                             HorizontalTextAlignment="End"
-                            Text="Valor HEX: #00000"
+                            Text="#000000"
                             VerticalOptions="Center"
                         />
                         <ImageButton 
                             Margin="10,0,0,0"
-                            HeightRequest="5"
-                            Source="copyicon.svg"
+                            HeightRequest="10"
+                            Source="copyicon.png"
                             VerticalOptions="Center"
-                            WidthRequest="5"
+                            HorizontalOptions="Center"
+                            WidthRequest="10"
+                            Clicked="ImageButton_Clicked"
                             />
 
                     </HorizontalStackLayout>
@@ -95,7 +106,8 @@
                 <Button
                     x:Name="btnRandom"
                     Text="Color Aleatório"
-                    BackgroundColor="{StaticResource ButtonColor}"/>
+                    BackgroundColor="{StaticResource ButtonColor}"
+                    Clicked="btnRandom_Clicked"/>
 
 
             </VerticalStackLayout>
