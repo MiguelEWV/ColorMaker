@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ColorMaker.MainPage">
+             x:Class="ColorMaker.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <!-- Informativo
+    Para la Aplicacion estar en Pantalla Completa fue colocado codigo en el archivo "MauiProgram.cs" Windows y 
+    "Platforms/Android/MainActivity.cs" para Android
+    -->
 
    <!-- 
     ContentPage.Resources contiene recursos para el contenido de una paguina 
@@ -11,14 +17,14 @@
     <ContentPage.Resources>
         <Color x:Key="BackgroundColor">#f0f0f0</Color>
         <Color x:Key="TextColor">#000000</Color>
-        <Color x:Key="ButtonColor">#3498db</Color>
-        <Color x:Key="ButtonTextColor">#ffffff</Color>
+        <Color x:Key="ButtonColor">#494F58</Color>
+        <Color x:Key="ButtonTextColor">#000000</Color>
     </ContentPage.Resources>
 
     <!-- 
     Grid sera usado para definir los elementos por medidas fijas
     -->
-    <Grid BackgroundColor="Black">
+    <Grid BackgroundColor="#DFE2E3">
         <!--
         Borde usado para criar la caja contenedora de los elementos
         https://learn.microsoft.com/pt-br/dotnet/maui/user-interface/controls/border?view=net-maui-9.0
@@ -42,9 +48,11 @@
                     FontSize="Large"
                     HorizontalTextAlignment="Center"
                     Text="Color Maker"
+                    TextColor="{StaticResource TextColor}"
                 />
                 <Label 
                     Text="Valor Rojo:"
+                    TextColor="{StaticResource TextColor}"
                  />
                 <!--Cada Slider tem um manipulador de evento llamado "Value Change"-->
                 <Slider 
@@ -56,6 +64,7 @@
                 />
                 <Label 
                     Text="Valor Verde:"
+                    TextColor="{StaticResource TextColor}"
                  />
                 <Slider 
                     x:Name="slVerde"
@@ -66,6 +75,7 @@
                 />
                 <Label 
                     Text="Valor Azul:"
+                    TextColor="{StaticResource TextColor}"
                  />
                 <Slider 
                     x:Name="slAzul"
@@ -83,12 +93,14 @@
                             HorizontalTextAlignment="Start"
                             Text="Valor HEX: "
                             VerticalOptions="Center"
+                            TextColor="{StaticResource TextColor}"
                          />
                         <Label
                             x:Name="lblHex"
                             HorizontalTextAlignment="End"
                             Text="#000000"
                             VerticalOptions="Center"
+                            TextColor="{StaticResource TextColor}"
                         />
                         <ImageButton 
                             Margin="10,0,0,0"
@@ -97,7 +109,7 @@
                             VerticalOptions="Center"
                             HorizontalOptions="Center"
                             WidthRequest="10"
-                            Clicked="ImageButton_Clicked"
+                            Clicked="ImageButton_Clicked"                            
                             />
 
                     </HorizontalStackLayout>
@@ -107,7 +119,9 @@
                     x:Name="btnRandom"
                     Text="Color Aleatório"
                     BackgroundColor="{StaticResource ButtonColor}"
-                    Clicked="btnRandom_Clicked"/>
+                    Clicked="btnRandom_Clicked"
+                    TextColor="White"
+                    />
 
 
             </VerticalStackLayout>

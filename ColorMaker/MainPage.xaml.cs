@@ -55,7 +55,7 @@ namespace ColorMaker
 
         private void SetColor(Color color)
         {
-            btnRandom.BackgroundColor = color;
+            //btnRandom.BackgroundColor = color;
             slRojo.MinimumTrackColor = color;
             slRojo.ThumbColor = color;
             slVerde.ThumbColor = color;
