@@ -1,9 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ColorMaker.MainPage"
-             NavigationPage.HasNavigationBar="False"
+             
              >
+    
+<!--
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Fuchsia" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+-->
+    <!-- Este codigo deja la bara de estado transparente 
+    Necesario acrescentar antes en el ContentPage 
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Explicaacion detallada: https://stackoverflow.com/questions/73926834/net-maui-transparent-status-bar
+    -->
+    <Page.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Transparent" StatusBarStyle="LightContent" />
+    </Page.Behaviors>
+
     <!-- Informativo
     Para la Aplicacion estar en Pantalla Completa fue colocado codigo en el archivo "MauiProgram.cs" Windows y 
     "Platforms/Android/MainActivity.cs" para Android
@@ -24,7 +40,9 @@
     <!-- 
     Grid sera usado para definir los elementos por medidas fijas
     -->
-    <Grid BackgroundColor="#DFE2E3">
+    <Grid 
+        Margin="0,0,0,0"
+        BackgroundColor="#DFE2E3">
         <!--
         Borde usado para criar la caja contenedora de los elementos
         https://learn.microsoft.com/pt-br/dotnet/maui/user-interface/controls/border?view=net-maui-9.0
@@ -34,7 +52,7 @@
         <Border  
             Margin="10,0,10,0" 
             VerticalOptions="Center"
-            Background="{StaticResource BackgroundColor}"
+            Background="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
             StrokeThickness="2"
             Padding="10,10"
             StrokeShape="RoundRectangle 20,0,0,20"
@@ -48,11 +66,12 @@
                     FontSize="Large"
                     HorizontalTextAlignment="Center"
                     Text="Color Maker"
-                    TextColor="{StaticResource TextColor}"
+                    
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                 />
                 <Label 
                     Text="Valor Rojo:"
-                    TextColor="{StaticResource TextColor}"
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                  />
                 <!--Cada Slider tem um manipulador de evento llamado "Value Change"-->
                 <Slider 
@@ -64,7 +83,7 @@
                 />
                 <Label 
                     Text="Valor Verde:"
-                    TextColor="{StaticResource TextColor}"
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                  />
                 <Slider 
                     x:Name="slVerde"
@@ -75,7 +94,7 @@
                 />
                 <Label 
                     Text="Valor Azul:"
-                    TextColor="{StaticResource TextColor}"
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                  />
                 <Slider 
                     x:Name="slAzul"
@@ -93,14 +112,14 @@
                             HorizontalTextAlignment="Start"
                             Text="Valor HEX: "
                             VerticalOptions="Center"
-                            TextColor="{StaticResource TextColor}"
+                            TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                          />
                         <Label
                             x:Name="lblHex"
                             HorizontalTextAlignment="End"
                             Text="#000000"
                             VerticalOptions="Center"
-                            TextColor="{StaticResource TextColor}"
+                            TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
                         />
                         <ImageButton 
                             Margin="10,0,0,0"
@@ -109,7 +128,9 @@
                             VerticalOptions="Center"
                             HorizontalOptions="Center"
                             WidthRequest="10"
-                            Clicked="ImageButton_Clicked"                            
+                            Clicked="ImageButton_Clicked"
+                            BackgroundColor="Transparent"
+                            
                             />
 
                     </HorizontalStackLayout>
@@ -118,11 +139,25 @@
                 <Button
                     x:Name="btnRandom"
                     Text="Color Aleatório"
-                    BackgroundColor="{StaticResource ButtonColor}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource ButtonColor}, Dark={StaticResource Primary}}"
                     Clicked="btnRandom_Clicked"
-                    TextColor="White"
+                    FontSize="Subtitle"
+                    TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
                     />
-
+                <Label   
+                    HorizontalTextAlignment="Center"
+                    Text="Creado por Miguel Wells"
+                    FontSize="12"
+                    VerticalOptions="Center"
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
+                 />
+                <Label   
+                    HorizontalTextAlignment="Center"
+                    Text= "v 1.0"
+                    FontSize="10"
+                    VerticalOptions="Center"
+                    TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource PrimaryDarkText}}"
+                />
 
             </VerticalStackLayout>
             

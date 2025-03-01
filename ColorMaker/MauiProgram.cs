@@ -44,8 +44,8 @@ public static class MauiProgram
                     AppWindow winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);    
                    
                     //Se define el tamano de la ventana en pixeles alto y ancho
-                    const int width = 350; 
-                    const int height = 600;
+                    const int width = 400; 
+                    const int height = 650;
 
                     if(winuiAppWindow.Presenter is OverlappedPresenter p)
                         { 

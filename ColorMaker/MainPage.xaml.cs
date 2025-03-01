@@ -1,5 +1,7 @@
 ﻿
 using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Behaviors;
+using CommunityToolkit.Maui.Core;
 
 namespace ColorMaker
 {
