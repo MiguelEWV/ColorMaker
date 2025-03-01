@@ -30,6 +30,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
+
+
+
 #if WINDOWS //Codigo para ejecutar en plataformas Windows (Permite reajustar el tamano de pantalla, y controles)
         builder.ConfigureLifecycleEvents(events =>
         {
